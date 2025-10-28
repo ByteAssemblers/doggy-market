@@ -392,7 +392,10 @@ export default function Header() {
                         </div>
                         <div className="text-[90%]">
                           Your wallet needs backup&#xA0;
-                          <span className="font-semibold text-[#c891ff] decoration-inherit cursor-pointer">
+                          <span
+                            onClick={() => setWalletState("secret")}
+                            className="font-semibold text-[#c891ff] decoration-inherit cursor-pointer"
+                          >
                             Backup now
                           </span>
                         </div>

@@ -312,9 +312,9 @@ export default function DRCTwenty() {
       <div className="flex items-center justify-center my-4">
         <Link
           href="/drc-20"
-          className="flex items-center justify-center py-5 px-12 rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out"
+          className="flex items-center justify-center py-5 px-12 rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out hover:bg-[#1D1E20] hover:text-[violet]"
         >
-          <div className="flex items-center h-16">Show all DRC-20 tokens</div>
+          <div className="flex items-center">Show all DRC-20 tokens</div>
         </Link>
       </div>
     </>

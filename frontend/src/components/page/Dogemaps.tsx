@@ -90,7 +90,7 @@ export default function Dogemaps() {
         ))}
         <Link
           href="/dogemaps"
-          className="flex items-center justify-center min-h-56 bg-[#4c505c33] border border-transparent rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-250 ease-in-out"
+          className="flex items-center justify-center min-h-56 bg-[#4c505c33] border border-transparent rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-250 ease-in-out hover:text-[violet] hover:border-[violet]"
         >
           <div className="text-center p-3">Show all listed dogemaps</div>
         </Link>

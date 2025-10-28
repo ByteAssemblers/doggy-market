@@ -114,7 +114,7 @@ export default function Collections() {
           <Link
             key={item.id}
             href={`/nfts/${item.addressurl}`}
-            className="flex items-center grow py-3 px-4 text-white rounded-[12px] transition-all duration-150 ease-in-out"
+            className="flex items-center grow py-3 px-4 text-white rounded-[12px] transition-all duration-150 ease-in-out hover:bg-[#1D1E20]"
           >
             <div className="text-[1.2rem] font-bold min-w-[0.7rem]">
               {item.id}
@@ -221,7 +221,7 @@ export default function Collections() {
         ))}
         <Link
           href="/nfts"
-          className="flex items-center justify-center py-3 px-4 rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out"
+          className="flex items-center justify-center py-3 px-4 rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out hover:bg-[#1D1E20] hover:text-[violet]"
         >
           <div className="flex items-center h-16">Show all collections</div>
         </Link>
