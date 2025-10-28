@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${serifSans.variable} ${jetbrainMono.variable} antialiased m-0 min-w-[320px] min-h-screen cursor-auto bg-[#121212] text-[#fffffff2]`}
+        className={`${serifSans.variable} ${jetbrainMono.variable} m-0 min-h-screen min-w-[320px] cursor-auto bg-[#121212] text-[#fffffff2] antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,7 +41,7 @@ export default function RootLayout({
           <ClientProvider>
             <div className="flex flex-col items-center">
               <Header />
-              <main className="relative tiny:p-8 p-3 max-w-[1200px] w-full min-h-[calc(100vh-5rem)]">
+              <main className="tiny:p-8 relative min-h-[calc(100vh-5rem)] w-full max-w-[1200px] p-3">
                 {children}
               </main>
               <Footer />

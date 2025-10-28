@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Moon, SunDim } from 'lucide-react';
-import { useState, useRef } from 'react';
-import { flushSync } from 'react-dom';
-import { useTheme } from 'next-themes';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { Moon, SunDim } from "lucide-react";
+import { useState, useRef } from "react";
+import { flushSync } from "react-dom";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type props = {
   className?: string;
@@ -20,9 +20,9 @@ export const ThemeToggler = ({ className }: props) => {
 
     await document.startViewTransition(() => {
       flushSync(() => {
-        const dark = document.documentElement.classList.toggle('dark');
+        const dark = document.documentElement.classList.toggle("dark");
         setIsDarkMode(dark);
-        setTheme(dark ? 'dark' : 'light');
+        setTheme(dark ? "dark" : "light");
       });
     }).ready;
 
@@ -39,20 +39,20 @@ export const ThemeToggler = ({ className }: props) => {
       {
         clipPath: [
           `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRad}px at ${x}px ${y}px)`
-        ]
+          `circle(${maxRad}px at ${x}px ${y}px)`,
+        ],
       },
       {
         duration: 1000,
-        easing: 'ease-in-out',
-        pseudoElement: '::view-transition-new(root)'
-      }
+        easing: "ease-in-out",
+        pseudoElement: "::view-transition-new(root)",
+      },
     );
   };
   return (
     <Button
-      variant='secondary'
-      size='icon'
+      variant="secondary"
+      size="icon"
       ref={buttonRef}
       onClick={changeTheme}
       className={cn(className)}

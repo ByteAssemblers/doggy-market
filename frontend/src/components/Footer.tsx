@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="w-full flex justify-center py-4 border-t border-[#454545] bg-[#0a0a0a]">
-      <div className="max-w-[1200px] w-full mx-4 text-[#eaeaea]">
-        <div className="flex items-center justify-between flex-wrap gap-y-2 gap-x-8">
+    <div className="flex w-full justify-center border-t border-[#454545] bg-[#0a0a0a] py-4">
+      <div className="mx-4 w-full max-w-[1200px] text-[#eaeaea]">
+        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
           <div className="flex items-center">
             <Image
               src="/assets/logo.png"
@@ -17,13 +17,13 @@ export default function Footer() {
               priority
               style={{ width: "auto", height: "auto" }}
             />
-            <div className="ml-4 mr-6 leading-[1.2] text-[1.2rem] font-semibold">
+            <div className="mr-6 ml-4 text-[1.2rem] leading-[1.2] font-semibold">
               <span>Doggy</span>
               <span className="ml-[0.25em]">Market</span>
             </div>
             <Link
               href="https://x.com/doggy_market"
-              className="flex items-center rounded-[12px] transition-all duration-150 ease-in-out text-[0.8rem] border-0 leading-none text-white mx-1 p-[0.4rem_0.6rem]"
+              className="mx-1 flex items-center rounded-[12px] border-0 p-[0.4rem_0.6rem] text-[0.8rem] leading-none text-white transition-all duration-150 ease-in-out"
             >
               <span>
                 <svg
@@ -46,7 +46,7 @@ export default function Footer() {
             </Link>
             <Link
               href="https://t.me/doggymarket"
-              className="flex items-center rounded-[12px] transition-all duration-150 ease-in-out text-[0.8rem] border-0 leading-none text-white mx-1 p-[0.4rem_0.6rem]"
+              className="mx-1 flex items-center rounded-[12px] border-0 p-[0.4rem_0.6rem] text-[0.8rem] leading-none text-white transition-all duration-150 ease-in-out"
             >
               <span>
                 <svg
@@ -67,7 +67,7 @@ export default function Footer() {
               <span className="ml-[0.3rem]">Telegram</span>
             </Link>
           </div>
-          <div className="inline-flex gap-x-6 text-[0.9rem] flex-wrap text-[#c891d8]">
+          <div className="inline-flex flex-wrap gap-x-6 text-[0.9rem] text-[#c891d8]">
             <Link href="/inscribe">Inscribe on doginals</Link>
             <Link href="/creators">Creators dashboard</Link>
           </div>

@@ -30,7 +30,7 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
   return (
     <Card
       key={item.id}
-      className="relative overflow-hidden flex flex-col rounded-[12px] bg-[#4c505c33] outline-1 outline-transparent transition-all duration-200 ease-in-out p-0 gap-0 hover:border-[#8c45ff] hover:[&_div]:[&_button]:text-white hover:[&_div]:[&_button]:bg-[#8c45ff]"
+      className="relative flex flex-col gap-0 overflow-hidden rounded-[12px] bg-[#4c505c33] p-0 outline-1 outline-transparent transition-all duration-200 ease-in-out hover:border-[#8c45ff] hover:[&_div]:[&_button]:bg-[#8c45ff] hover:[&_div]:[&_button]:text-white"
     >
       {!imgError && (
         <div className="flex px-3 pt-3 pb-0">
@@ -39,20 +39,20 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
             alt={`Dogemaps #${item.id}`}
             width={112}
             height={112}
-            className="h-28 max-w-full mx-auto object-contain"
+            className="mx-auto h-28 max-w-full object-contain"
             onError={() => setImgError(true)}
             unoptimized
           />
         </div>
       )}
 
-      <div className="flex flex-col h-full pt-1 px-3 pb-3">
+      <div className="flex h-full flex-col px-3 pt-1 pb-3">
         {imgError ? (
-          <div className="text-center text-[1.1rem] mt-11 mb-11">
+          <div className="mt-11 mb-11 text-center text-[1.1rem]">
             {item.id}.dogemaps
           </div>
         ) : (
-          <div className="text-center text-[1.1rem] my-1">
+          <div className="my-1 text-center text-[1.1rem]">
             {item.id}.dogemaps
           </div>
         )}
@@ -61,7 +61,7 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
             <div>Seller:</div>
             <Link
               href={`/wallet/${item.seller}`}
-              className="font-medium text-[#c891ff] no-underline cursor-pointer"
+              className="cursor-pointer font-medium text-[#c891ff] no-underline"
             >
               {item.seller.slice(0, 5)}...{item.seller.slice(-5)}
             </Link>
@@ -69,14 +69,14 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
         </div>
         <div className="mt-1.5 border-t border-white/10 py-2">
           <div>
-            <div className="flex text-center justify-center">
+            <div className="flex justify-center text-center">
               <Image
                 src="/assets/coin.svg"
                 alt="coin"
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               {item.price}&#xA0;
               <span className="text-[0.9rem] text-[#fffc]">
@@ -86,16 +86,16 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
           </div>
         </div>
         <Dialog>
-          <DialogTrigger className="w-full font-extrabold text-[#9c63fa] border-0 transition-all duration-250 ease-in-out bg-[#e6d8fe] cursor-pointer rounded-[12px] py-2 px-4 text-[1em] font-inherit ">
+          <DialogTrigger className="font-inherit w-full cursor-pointer rounded-[12px] border-0 bg-[#e6d8fe] px-4 py-2 text-[1em] font-extrabold text-[#9c63fa] transition-all duration-250 ease-in-out">
             Buy
           </DialogTrigger>
-          <DialogContent className="scale-100 opacity-100 w-xl flex flex-col my-[50px] box-border shrink-0 grow-0 max-w-[calc(100%-1rem)] min-h-[500px] overflow-visible  transition-opacity duration-200 ease-linear bg-[#ffffff1f] backdrop-blur-xl rounded-[12px] p-6">
+          <DialogContent className="my-[50px] box-border flex min-h-[500px] w-xl max-w-[calc(100%-1rem)] shrink-0 grow-0 scale-100 flex-col overflow-visible rounded-[12px] bg-[#ffffff1f] p-6 opacity-100 backdrop-blur-xl transition-opacity duration-200 ease-linear">
             <DialogHeader>
-              <DialogTitle className="text-[#e6d8fe] text-3xl mt-0 text-center font-semibold leading-[1.1] mb-2">
+              <DialogTitle className="mt-0 mb-2 text-center text-3xl leading-[1.1] font-semibold text-[#e6d8fe]">
                 Buy dogemaps
               </DialogTitle>
               <DialogDescription></DialogDescription>
-              <div className="flex justify-center flex-wrap gap-2.5 max-h-104 overflow-y-auto mb-2">
+              <div className="mb-2 flex max-h-104 flex-wrap justify-center gap-2.5 overflow-y-auto">
                 <div className="rounded-[12px] bg-[#00000080] p-2">
                   <div className="flex">
                     <Image
@@ -103,86 +103,86 @@ const DogemapCard: React.FC<DogemapCardProps> = ({ item, dogecoinPrice }) => {
                       alt={`Dogemaps #${item.id}`}
                       width={144}
                       height={144}
-                      className="w-36 h-36 mx-auto rounded-md text-[0.8rem]"
+                      className="mx-auto h-36 w-36 rounded-md text-[0.8rem]"
                       unoptimized
                     />
                   </div>
-                  <div className="text-[1rem] text-center mt-2 text-white">
+                  <div className="mt-2 text-center text-[1rem] text-white">
                     {item.id}.dogemaps
                   </div>
                 </div>
               </div>
-              <div className="mt-auto leading-[1.6] grid grid-cols-[1fr_auto_auto]">
+              <div className="mt-auto grid grid-cols-[1fr_auto_auto] leading-[1.6]">
                 <div className="text-[0.95rem] text-white">
                   Taker fee (2.8%)
                 </div>
-                <div className="flex text-white text-[1rem]">
+                <div className="flex text-[1rem] text-white">
                   <Image
                     src="/assets/coin.svg"
                     alt="coin"
                     width={18}
                     height={18}
                     priority
-                    className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em] mt-[0.1rem]"
+                    className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                   />
                   {((item.price * 2.8) / 100).toFixed(2)}
                 </div>
-                <span className="text-[#fffc] text-[0.9rem] text-right ml-4">
+                <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
                   $ {(item.price * 0.028 * dogecoinPrice).toFixed(2)}
                 </span>
                 <div className="text-[0.95rem] text-white">Network fee</div>
-                <div className="flex text-white text-[1rem]">
+                <div className="flex text-[1rem] text-white">
                   <Image
                     src="/assets/coin.svg"
                     alt="coin"
                     width={18}
                     height={18}
                     priority
-                    className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em] mt-[0.1rem]"
+                    className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                   />
                   ≈0.5
                 </div>
-                <span className="text-[#fffc] text-[0.9rem] text-right ml-4">
+                <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
                   $0.099
                 </span>
-                <div className="text-[1rem] text-white mt-5 font-bold">
+                <div className="mt-5 text-[1rem] font-bold text-white">
                   Total
                 </div>
-                <div className="flex text-white text-[1rem] mt-5 font-bold">
+                <div className="mt-5 flex text-[1rem] font-bold text-white">
                   <Image
                     src="/assets/coin.svg"
                     alt="coin"
                     width={18}
                     height={18}
                     priority
-                    className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em] mt-[0.1rem]"
+                    className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                   />
                   {(item.price * 1.028 + 0.5).toFixed(2)}
                 </div>
-                <span className="text-[#fffc] text-[0.9rem] text-right ml-4 mt-5 font-bold">
+                <span className="mt-5 ml-4 text-right text-[0.9rem] font-bold text-[#fffc]">
                   ${((item.price * 1.028 + 0.5) * dogecoinPrice).toFixed(2)}
                 </span>
-                <div className="text-[0.95rem] text-white mt-2">
+                <div className="mt-2 text-[0.95rem] text-white">
                   Available balance
                 </div>
-                <div className="flex text-white text-[1rem] mt-2">
+                <div className="mt-2 flex text-[1rem] text-white">
                   <Image
                     src="/assets/coin.svg"
                     alt="coin"
                     width={18}
                     height={18}
                     priority
-                    className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em] mt-[0.1rem]"
+                    className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                   />
                   0
                 </div>
-                <span className="text-[#fffc] text-[0.9rem] text-right ml-4 mt-2">
+                <span className="mt-2 ml-4 text-right text-[0.9rem] text-[#fffc]">
                   $0
                 </span>
               </div>
               <button
                 disabled
-                className="mt-4 flex justify-center text-white font-bold w-full rounded-[12px] border border-transparent py-2 px-4 text-[1em] font-inherit transition-all duration-200 ease-in-out disabled:bg-[#1a1a1a]"
+                className="font-inherit mt-4 flex w-full justify-center rounded-[12px] border border-transparent px-4 py-2 text-[1em] font-bold text-white transition-all duration-200 ease-in-out disabled:bg-[#1a1a1a]"
               >
                 Insufficient balance
               </button>

@@ -136,7 +136,9 @@
 }
 
 :root {
-  font-family: JetBrains Mono, sans-serif;
+  font-family:
+    JetBrains Mono,
+    sans-serif;
   line-height: 1.4;
   color-scheme: dark;
   color: #fffffff2;

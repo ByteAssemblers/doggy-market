@@ -180,7 +180,7 @@ const dogecoinPrice = 0.1957;
 export default function BiggestSalesOfDay() {
   return (
     <>
-      <h2 className="text-[1.6rem] mt-8 mb-6 leading-[1.1]">
+      <h2 className="mt-8 mb-6 text-[1.6rem] leading-[1.1]">
         Biggest sales of day
       </h2>
       <Carousel className="w-full">
@@ -188,10 +188,10 @@ export default function BiggestSalesOfDay() {
           {database.map((item, index) => (
             <CarouselItem
               key={`${item.id}-${index}`}
-              className="pl-1 xl:basis-1/5 lg:basis-1/4 md:basis-1/3 tiny:basis-1/2 basis-1/1"
+              className="tiny:basis-1/2 basis-1/1 pl-1 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
               <Card className="relative w-56 pt-0 pb-0">
-                <div className="absolute top-0 right-0 rounded-bl-[12px] text-white bg-[#0000006b] px-2 py-0 font-semibold text-[0.9rem] pointer-events-none">
+                <div className="pointer-events-none absolute top-0 right-0 rounded-bl-[12px] bg-[#0000006b] px-2 py-0 text-[0.9rem] font-semibold text-white">
                   #{item.id}
                 </div>
                 <Link href={`/inscription/${item.id}`}>
@@ -200,24 +200,24 @@ export default function BiggestSalesOfDay() {
                     alt={`BSOD #${item.id}`}
                     width={224}
                     height={224}
-                    className="w-full aspect-square bg-[#00000080] block object-contain rounded-[12px] [image-rendering:pixelated]"
+                    className="block aspect-square w-full rounded-[12px] bg-[#00000080] object-contain [image-rendering:pixelated]"
                     unoptimized
                   />
                 </Link>
-                <div className="pt-1 px-3 pb-3 h-full flex flex-col">
-                  <div className="flex justify-center gap-4 text-[1.1rem] leading-[1.2] font-semibold text-white my-1">
+                <div className="flex h-full flex-col px-3 pt-1 pb-3">
+                  <div className="my-1 flex justify-center gap-4 text-[1.1rem] leading-[1.2] font-semibold text-white">
                     <span>{item.collectionname}</span>
                     <span>#{item.collectionid}</span>
                   </div>
-                  <div className="mt-auto py-1 border-t border-white/10">
-                    <div className="flex text-center justify-center">
+                  <div className="mt-auto border-t border-white/10 py-1">
+                    <div className="flex justify-center text-center">
                       <Image
                         src="/assets/coin.svg"
                         alt="coin"
                         width={18}
                         height={18}
                         priority
-                        className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                        className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                       />
                       {item.price}&#xA0;
                       <span className="text-[0.9rem] text-[#fffc]">
@@ -227,7 +227,7 @@ export default function BiggestSalesOfDay() {
                   </div>
                   <Button
                     disabled
-                    className="w-full bg-[#ffffff12] text-[#cacaca] font-extrabold border-none transition-all duration-200 ease-in-out"
+                    className="w-full border-none bg-[#ffffff12] font-extrabold text-[#cacaca] transition-all duration-200 ease-in-out"
                   >
                     Sold
                   </Button>

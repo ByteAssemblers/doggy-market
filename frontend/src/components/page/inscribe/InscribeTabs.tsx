@@ -28,8 +28,8 @@ export default function InscribeTabs() {
   return (
     <>
       <Tabs defaultValue="files" className="relative">
-        <TabsList className="flex justify-between items-center flex-wrap shrink-0 my-4 bg-transparent">
-          <div className="flex my-2 overflow-x-auto select-none list-none p-0 gap-5">
+        <TabsList className="my-4 flex shrink-0 flex-wrap items-center justify-between bg-transparent">
+          <div className="my-2 flex list-none gap-5 overflow-x-auto p-0 select-none">
             <TabsTrigger value="files" className="text-md">
               Files
             </TabsTrigger>
@@ -40,7 +40,7 @@ export default function InscribeTabs() {
         </TabsList>
         <TabsContent value="files">
           <div className="relative">
-            <div className="relative min-w-[20rem] p-8 text-center bg-[#222] border-2 border-dashed border-[#696969] rounded-[12px] mb-6">
+            <div className="relative mb-6 min-w-[20rem] rounded-[12px] border-2 border-dashed border-[#696969] bg-[#222] p-8 text-center">
               <div>Click to select files, or drop your files here</div>
               <div className="text-[0.9rem] text-[#ffffffe6]">
                 Maximum 2500 files, if you want to inscribe more please split
@@ -50,23 +50,23 @@ export default function InscribeTabs() {
             <input
               type="file"
               multiple
-              className="opacity-0 absolute inset-0 cursor-pointer"
+              className="absolute inset-0 cursor-pointer opacity-0"
             />
           </div>
           <div className="mb-6">
             <div className="mb-2">Network fee:</div>
             <div className="inline-flex gap-6">
-              <div className="flex flex-col justify-center items-center p-3 px-4 rounded-[12px] border border-white/20 outline-1 outline-white/20">
+              <div className="flex flex-col items-center justify-center rounded-[12px] border border-white/20 p-3 px-4 outline-1 outline-white/20">
                 <div>Recommended</div>
                 <div className="text-[0.9rem] text-[#fffc]">0.042 doge/kB</div>
               </div>
-              <div className="flex flex-col justify-center items-center p-3 px-4 rounded-[12px] border border-white/20">
+              <div className="flex flex-col items-center justify-center rounded-[12px] border border-white/20 p-3 px-4">
                 <div>Custom</div>
                 {/* <div className="text-[0.9rem] text-[#fffc]">0.042 doge/kB</div> */}
               </div>
             </div>
           </div>
-          <Button className="rounded-[12px] border border-transparent py-2 px-4 text-[1em] font-medium font-inherit text-white hover:bg-[#222] bg-[#1a1a1a] transition-all duration-200 ease-in-out">
+          <Button className="font-inherit rounded-[12px] border border-transparent bg-[#1a1a1a] px-4 py-2 text-[1em] font-medium text-white transition-all duration-200 ease-in-out hover:bg-[#222]">
             Inscribe
           </Button>
         </TabsContent>
@@ -76,7 +76,7 @@ export default function InscribeTabs() {
             <input
               type="text"
               placeholder="Inscription ID"
-              className="w-[20rem] max-w-full border-b border-tan mr-2 bg-transparent border-0 outline-none text-inherit text-center p-1"
+              className="border-tan mr-2 w-[20rem] max-w-full border-0 border-b bg-transparent p-1 text-center text-inherit outline-none"
             />
           </div>
           <div className="mt-4 inline-flex justify-start rounded-[12px] border border-white/10">
@@ -93,7 +93,7 @@ export default function InscribeTabs() {
                 min="1"
                 step="1"
                 onChange={handleChange}
-                className="bg-transparent border border-transparent border-l border-r outline-none w-16 text-center text-inherit font-bold[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                className="font-bold[appearance:textfield] w-16 border border-r border-l border-transparent bg-transparent text-center text-inherit outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               />
               <Button
                 onClick={handleIncrease}
@@ -112,12 +112,12 @@ export default function InscribeTabs() {
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               {0.7 * num}
             </div>
           </div>
-          <Button className="rounded-[12px] border border-transparent py-2 px-4 text-[1em] font-medium font-inherit text-white hover:bg-[#222] bg-[#1a1a1a] transition-all duration-200 ease-in-out">
+          <Button className="font-inherit rounded-[12px] border border-transparent bg-[#1a1a1a] px-4 py-2 text-[1em] font-medium text-white transition-all duration-200 ease-in-out hover:bg-[#222]">
             Inscribe
           </Button>
         </TabsContent>

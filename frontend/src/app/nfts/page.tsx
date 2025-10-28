@@ -32,14 +32,14 @@ export default function nfts() {
 
   return (
     <>
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-[1.6rem] m-0 leading-[1.1]">Collections</h2>
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="m-0 text-[1.6rem] leading-[1.1]">Collections</h2>
         <div></div>
         <button></button>
       </div>
-      <div className="w-full overflow-x-auto px-2.0">
+      <div className="px-2.0 w-full overflow-x-auto">
         <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-          <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+          <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
             <TableRow className="">
               <TableHead>#</TableHead>
               <TableHead>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</TableHead>
@@ -56,10 +56,10 @@ export default function nfts() {
             {database.map((item) => (
               <TableRow
                 key={item.id}
-                className="cursor-pointer text-white text-[16px] transition-all duration-150 ease-in-out"
+                className="cursor-pointer text-[16px] text-white transition-all duration-150 ease-in-out"
                 onClick={() => router.push(`/nfts/${item.urlname}`)}
               >
-                <TableCell className="rounded-tl-[12px] rounded-bl-[12px] w-auto font-bold py-4 px-3 align-middle">
+                <TableCell className="w-auto rounded-tl-[12px] rounded-bl-[12px] px-3 py-4 align-middle font-bold">
                   {item.id}
                 </TableCell>
                 <TableCell>
@@ -69,7 +69,7 @@ export default function nfts() {
                       alt={`DRC-20 #${item.name}`}
                       width={42}
                       height={42}
-                      className="w-[42px] h-[42px] align-middle object-cover rounded-full"
+                      className="h-[42px] w-[42px] rounded-full object-cover align-middle"
                       unoptimized
                     />
                     {item.verify && (
@@ -105,7 +105,7 @@ export default function nfts() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {item.floorprice.toLocaleString()}
                   </div>
@@ -118,7 +118,7 @@ export default function nfts() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {item.twentyfourhourvolume.toLocaleString()}
                   </div>
@@ -131,7 +131,7 @@ export default function nfts() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {item.totalvolume.toLocaleString()}
                   </div>

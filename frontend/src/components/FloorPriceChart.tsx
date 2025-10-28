@@ -23,7 +23,7 @@ const data = [
 export function FloorPriceChart() {
   return (
     <ChartContainer
-      className="w-full h-80"
+      className="h-80 w-full"
       config={{
         price: {
           label: "Floor Price",

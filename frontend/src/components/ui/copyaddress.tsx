@@ -55,10 +55,10 @@ export function CopyAddress({
         <TooltipTrigger asChild>
           <Button variant={variant} size={size} onClick={handleCopy}>
             {children || (
-              <div className="flex text-[0.8rem] px-[0.6em] py-[0.4em] cursor-pointer rounded-sm border border-transparent font-medium font-inherit transition-all duration-200 ease-in-out hover:bg-[#202225]">
+              <div className="font-inherit flex cursor-pointer rounded-sm border border-transparent px-[0.6em] py-[0.4em] text-[0.8rem] font-medium transition-all duration-200 ease-in-out hover:bg-[#202225]">
                 {showText && (
                   <>
-                    <span className="mr-2 text-[16px] cursor-pointer">
+                    <span className="mr-2 cursor-pointer text-[16px]">
                       DA29j...pnDZf&#xA0;
                     </span>
                     <Copy />
@@ -69,7 +69,7 @@ export function CopyAddress({
           </Button>
         </TooltipTrigger>
 
-        <TooltipContent className="z-9999 bg-[#333] text-white text-sm">
+        <TooltipContent className="z-9999 bg-[#333] text-sm text-white">
           {copied ? "Copied!" : "Click to copy"}
         </TooltipContent>
       </Tooltip>

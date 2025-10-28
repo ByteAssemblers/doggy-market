@@ -107,16 +107,16 @@ const database = [
 export default function Collections() {
   return (
     <>
-      <h2 className="text-[1.6rem] mt-8 mb-6 leading-[1.1]">Collections</h2>
+      <h2 className="mt-8 mb-6 text-[1.6rem] leading-[1.1]">Collections</h2>
       {/* <div className="flex flex-wrap gap-x-16"> */}
       <div className="col:grid col:grid-flow-col col:grid-rows-5 gap-x-8">
         {database.map((item) => (
           <Link
             key={item.id}
             href={`/nfts/${item.addressurl}`}
-            className="flex items-center grow py-3 px-4 text-white rounded-[12px] transition-all duration-150 ease-in-out hover:bg-[#1D1E20]"
+            className="flex grow items-center rounded-[12px] px-4 py-3 text-white transition-all duration-150 ease-in-out hover:bg-[#1D1E20]"
           >
-            <div className="text-[1.2rem] font-bold min-w-[0.7rem]">
+            <div className="min-w-[0.7rem] text-[1.2rem] font-bold">
               {item.id}
             </div>
             <div className="relative mx-[1.4rem] my-0 shrink-0">
@@ -125,7 +125,7 @@ export default function Collections() {
                 alt={`Collections #${item.addressurl}`}
                 width={64}
                 height={64}
-                className="w-16 h-16 rounded-full bg-[#212121] object-cover image-pixelated"
+                className="image-pixelated h-16 w-16 rounded-full bg-[#212121] object-cover"
                 unoptimized
               />
               {item.verify && (
@@ -152,24 +152,24 @@ export default function Collections() {
               )}
             </div>
             <div>
-              <div className="text-[1.2rem] font-semibold leading-[1.2] mb-1 max-w-[18rem]">
+              <div className="mb-1 max-w-[18rem] text-[1.2rem] leading-[1.2] font-semibold">
                 {item.name}
               </div>
-              <div className="text-[0.9rem] font-normal text-[#fffc] leading-[1.2] flex">
+              <div className="flex text-[0.9rem] leading-[1.2] font-normal text-[#fffc]">
                 Floor price:&#xA0;
-                <span className="whitespace-nowrap text-[#fffffff2] font-medium flex">
+                <span className="flex font-medium whitespace-nowrap text-[#fffffff2]">
                   <Image
                     src="/assets/coin.svg"
                     alt="coin"
                     width={16}
                     height={16}
                     priority
-                    className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                    className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                   />
                   {item.floorPrice}&#xA0;
                   {item.percent == 0 && <></>}
                   {item.percent > 0 && (
-                    <span className="text-[#00FF7F] text-[0.8rem] flex">
+                    <span className="flex text-[0.8rem] text-[#00FF7F]">
                       <svg
                         viewBox="-139.52 -43.52 599.04 599.04"
                         fill="currentColor"
@@ -187,7 +187,7 @@ export default function Collections() {
                     </span>
                   )}
                   {item.percent < 0 && (
-                    <span className="flex text-[#ff6347] text-[0.8rem]">
+                    <span className="flex text-[0.8rem] text-[#ff6347]">
                       <svg
                         viewBox="-139.52 -43.52 599.04 599.04"
                         fill="currentColor"
@@ -206,14 +206,14 @@ export default function Collections() {
                 </span>
               </div>
             </div>
-            <div className="ml-auto pl-6 whitespace-nowrap flex">
+            <div className="ml-auto flex pl-6 whitespace-nowrap">
               <Image
                 src="/assets/coin.svg"
                 alt="coin"
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               {item.volume.toLocaleString()}
             </div>
@@ -221,9 +221,9 @@ export default function Collections() {
         ))}
         <Link
           href="/nfts"
-          className="flex items-center justify-center py-3 px-4 rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out hover:bg-[#1D1E20] hover:text-[violet]"
+          className="flex items-center justify-center rounded-[12px] px-4 py-3 font-bold text-[#fbb9fb] transition-all duration-150 ease-in-out hover:bg-[#1D1E20] hover:text-[violet]"
         >
-          <div className="flex items-center h-16">Show all collections</div>
+          <div className="flex h-16 items-center">Show all collections</div>
         </Link>
       </div>
     </>

@@ -70,8 +70,8 @@ export default function DogemapsTabs() {
 
   return (
     <Tabs defaultValue="listings" className="relative">
-      <TabsList className="flex justify-between items-center flex-wrap shrink-0 my-4 bg-transparent">
-        <div className="flex my-2 overflow-x-auto select-none list-none p-0 gap-5">
+      <TabsList className="my-4 flex shrink-0 flex-wrap items-center justify-between bg-transparent">
+        <div className="my-2 flex list-none gap-5 overflow-x-auto p-0 select-none">
           <TabsTrigger value="listings" className="text-md">
             Listings
           </TabsTrigger>
@@ -83,7 +83,7 @@ export default function DogemapsTabs() {
           </TabsTrigger>
         </div>
         <TabsContent value="listings">
-          <div className="absolute flex text-center text-white gap-2 right-0">
+          <div className="absolute right-0 flex gap-2 text-center text-white">
             <Filter />
             <Filter />
             <Filter />
@@ -92,7 +92,7 @@ export default function DogemapsTabs() {
         </TabsContent>
       </TabsList>
       <TabsContent value="listings">
-        <div className="mt-4 grid tiny:gap-5 gap-2 grid-cols-2 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2">
+        <div className="tiny:gap-5 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2 mt-4 grid grid-cols-2 gap-2">
           {currentItems.map((item) => (
             <DogemapCard
               key={item.id}
@@ -111,7 +111,7 @@ export default function DogemapsTabs() {
                   e.preventDefault();
                   handlePageChange(currentPage - 1);
                 }}
-                className="bg-[#111] text-white rounded-md hover:bg-[#1c1c1c] transition-all"
+                className="rounded-md bg-[#111] text-white transition-all hover:bg-[#1c1c1c]"
               />
             </PaginationItem>
 
@@ -130,7 +130,7 @@ export default function DogemapsTabs() {
                   totalPages - 3,
                   totalPages - 2,
                   totalPages - 1,
-                  totalPages
+                  totalPages,
                 );
               } else {
                 pageButtons.push(
@@ -140,7 +140,7 @@ export default function DogemapsTabs() {
                   currentPage,
                   currentPage + 1,
                   "...",
-                  totalPages
+                  totalPages,
                 );
               }
 
@@ -154,12 +154,11 @@ export default function DogemapsTabs() {
                         handlePageChange(page);
                       }}
                       isActive={page === currentPage}
-                      className={`min-w-[38px] h-[38px] flex items-center justify-center rounded-md border transition-all
-                ${
-                  page === currentPage
-                    ? "border-yellow-400 text-yellow-400 bg-[#111]"
-                    : "border-transparent bg-[#111] text-white hover:border-white/20 hover:bg-[#1c1c1c]"
-                }`}
+                      className={`flex h-[38px] min-w-[38px] items-center justify-center rounded-md border transition-all ${
+                        page === currentPage
+                          ? "border-yellow-400 bg-[#111] text-yellow-400"
+                          : "border-transparent bg-[#111] text-white hover:border-white/20 hover:bg-[#1c1c1c]"
+                      }`}
                     >
                       {page}
                     </PaginationLink>
@@ -168,7 +167,7 @@ export default function DogemapsTabs() {
                   <PaginationItem key={idx}>
                     <PaginationEllipsis className="text-white/60" />
                   </PaginationItem>
-                )
+                ),
               );
             })()}
 
@@ -180,7 +179,7 @@ export default function DogemapsTabs() {
                   e.preventDefault();
                   handlePageChange(currentPage + 1);
                 }}
-                className="bg-[#111] text-white rounded-md hover:bg-[#1c1c1c] transition-all"
+                className="rounded-md bg-[#111] text-white transition-all hover:bg-[#1c1c1c]"
               />
             </PaginationItem>
           </PaginationContent>

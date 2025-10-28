@@ -174,8 +174,8 @@ export default function DRCTabs() {
 
   return (
     <Tabs defaultValue="toptokens" className="relative">
-      <TabsList className="flex justify-between items-center flex-wrap shrink-0 my-4 bg-transparent">
-        <div className="flex my-2 overflow-x-auto select-none list-none p-0 gap-5">
+      <TabsList className="my-4 flex shrink-0 flex-wrap items-center justify-between bg-transparent">
+        <div className="my-2 flex list-none gap-5 overflow-x-auto p-0 select-none">
           <TabsTrigger value="toptokens" className="text-md">
             Top tokens
           </TabsTrigger>
@@ -184,14 +184,14 @@ export default function DRCTabs() {
           </TabsTrigger>
         </div>
         <TabsContent value="toptokens">
-          <div className="absolute flex text-center text-white gap-2 right-0">
+          <div className="absolute right-0 flex gap-2 text-center text-white">
             24h 7d 30d All
           </div>
         </TabsContent>
       </TabsList>
       <TabsContent value="toptokens">
         <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-          <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+          <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
             <TableRow className="">
               <TableHead>#</TableHead>
               <TableHead>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</TableHead>
@@ -208,10 +208,10 @@ export default function DRCTabs() {
             {database.map((item) => (
               <TableRow
                 key={item.id}
-                className="cursor-pointer text-white text-[16px] transition-all duration-150 ease-in-out"
+                className="cursor-pointer text-[16px] text-white transition-all duration-150 ease-in-out"
                 onClick={() => router.push(`/${item.tick}`)}
               >
-                <TableCell className="rounded-tl-[12px] rounded-bl-[12px] w-auto font-bold py-4 px-3 align-middle">
+                <TableCell className="w-auto rounded-tl-[12px] rounded-bl-[12px] px-3 py-4 align-middle font-bold">
                   {item.id}
                 </TableCell>
                 <TableCell>
@@ -220,7 +220,7 @@ export default function DRCTabs() {
                     alt={`DRC-20 #${item.tick}`}
                     width={42}
                     height={42}
-                    className="w-[42px] h-[42px] align-middle object-cover rounded-full"
+                    className="h-[42px] w-[42px] rounded-full object-cover align-middle"
                     unoptimized
                   />
                 </TableCell>
@@ -233,18 +233,18 @@ export default function DRCTabs() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {toFullNumber(item.price)}
                   </div>
-                  <div className="ml-5 font-medium text-[90%] leading-none text-[#fffc]">
+                  <div className="ml-5 text-[90%] leading-none font-medium text-[#fffc]">
                     ${formatNumber(item.price * dogecoinPrice)}
                   </div>
                 </TableCell>
                 <TableCell>
                   {item.twentyfourhourpercent == 0 && <>0%</>}
                   {item.twentyfourhourpercent > 0 && (
-                    <span className="flex text-[#00FF7F] ">
+                    <span className="flex text-[#00FF7F]">
                       <svg
                         viewBox="-139.52 -43.52 599.04 599.04"
                         fill="currentColor"
@@ -290,11 +290,11 @@ export default function DRCTabs() {
                           width={18}
                           height={18}
                           priority
-                          className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                          className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                         />
                         {item.twentyfourhourvolume}
                       </div>
-                      <div className="ml-5 font-medium text-[90%] leading-none text-[#fffc]">
+                      <div className="ml-5 text-[90%] leading-none font-medium text-[#fffc]">
                         $
                         {(item.twentyfourhourvolume * dogecoinPrice).toFixed(2)}
                       </div>
@@ -309,14 +309,14 @@ export default function DRCTabs() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {item.totalvolume.toLocaleString()}
                   </div>
-                  <div className="ml-5 font-medium text-[90%] leading-none text-[#fffc]">
+                  <div className="ml-5 text-[90%] leading-none font-medium text-[#fffc]">
                     $
                     {Number(
-                      (item.totalvolume * dogecoinPrice).toFixed(0)
+                      (item.totalvolume * dogecoinPrice).toFixed(0),
                     ).toLocaleString()}
                   </div>
                 </TableCell>
@@ -328,14 +328,14 @@ export default function DRCTabs() {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     {item.marketcap.toLocaleString()}
                   </div>
-                  <div className="ml-5 font-medium text-[90%] leading-none text-[#fffc]">
+                  <div className="ml-5 text-[90%] leading-none font-medium text-[#fffc]">
                     $
                     {Number(
-                      (item.marketcap * dogecoinPrice).toFixed(0)
+                      (item.marketcap * dogecoinPrice).toFixed(0),
                     ).toLocaleString()}
                   </div>
                 </TableCell>
@@ -347,7 +347,7 @@ export default function DRCTabs() {
       </TabsContent>
       <TabsContent value="mintingnow">
         <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-          <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+          <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
             <TableRow className="">
               <TableHead>#</TableHead>
               <TableHead>Tick</TableHead>

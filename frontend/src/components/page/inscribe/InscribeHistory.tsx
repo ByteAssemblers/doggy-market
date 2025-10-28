@@ -3,11 +3,11 @@ import { RefreshCcw } from "lucide-react";
 export default function InscribeHistory() {
   return (
     <>
-      <div className="flex items-center justify-between mt-6 mb-4">
-        <h3 className="m-0 block text-[1.17em] my-[1em] mx-0 font-bold">
+      <div className="mt-6 mb-4 flex items-center justify-between">
+        <h3 className="m-0 mx-0 my-[1em] block text-[1.17em] font-bold">
           History
         </h3>
-        <div className="inline-flex items-center gap-2 cursor-pointer">
+        <div className="inline-flex cursor-pointer items-center gap-2">
           <RefreshCcw />
           <span>Refresh</span>
         </div>

@@ -8,23 +8,23 @@ import { Button } from "@/components/ui/button";
 export default function TickInfo({ tick }: { tick: string }) {
   return (
     <div className="flex gap-x-8">
-      <div className="grow w-0 basis-105">
-        <div className="flex items-center justify-between mt-4 mb-8">
+      <div className="w-0 grow basis-105">
+        <div className="mt-4 mb-8 flex items-center justify-between">
           <div className="flex items-center">
             <Image
               src="https://api.doggy.market/static/drc-20/dogi.png"
               alt={`DRC-20`}
               width={48}
               height={48}
-              className="w-12 h-12 rounded-full mr-4 object-cover"
+              className="mr-4 h-12 w-12 rounded-full object-cover"
               unoptimized
             />
-            <div className="flex flex-wrap items-center gap-y-[0.2rem] gap-x-12">
-              <h1 className="text-[2.3rem] leading-[1.1] m-0">{tick}</h1>
+            <div className="flex flex-wrap items-center gap-x-12 gap-y-[0.2rem]">
+              <h1 className="m-0 text-[2.3rem] leading-[1.1]">{tick}</h1>
               <div className="flex">
                 <Link
                   href="https://www.minidogeart.com/"
-                  className="text-[#fffc] leading-none mr-4"
+                  className="mr-4 leading-none text-[#fffc]"
                 >
                   <svg
                     data-v-1f7beb45=""
@@ -38,7 +38,7 @@ export default function TickInfo({ tick }: { tick: string }) {
                 </Link>
                 <Link
                   href="https://x.com/minidogeart"
-                  className="text-[#fffc] leading-none"
+                  className="leading-none text-[#fffc]"
                 >
                   <svg
                     data-v-1f7beb45=""
@@ -60,16 +60,16 @@ export default function TickInfo({ tick }: { tick: string }) {
           </div>
         </div>
         <div className="mb-8">
-          <div className="flex flex-wrap -ml-12">
+          <div className="-ml-12 flex flex-wrap">
             <div className="mb-2 ml-12">
-              <div className="font-bold flex">
+              <div className="flex font-bold">
                 <Image
                   src="/assets/coin.svg"
                   alt="coin"
                   width={18}
                   height={18}
                   priority
-                  className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                  className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                 />
                 0.52
               </div>
@@ -77,11 +77,11 @@ export default function TickInfo({ tick }: { tick: string }) {
             </div>
             <div className="mb-2 ml-12">
               <div className="font-bold">
-                <span className="text-[#00ff7f] flex">
+                <span className="flex text-[#00ff7f]">
                   <svg
                     viewBox="-139.52 -43.52 599.04 599.04"
                     fill="currentColor"
-                    className="w-[1.5em] mb-[-0.35em]"
+                    className="mb-[-0.35em] w-[1.5em]"
                   >
                     <path d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"></path>
                   </svg>
@@ -91,14 +91,14 @@ export default function TickInfo({ tick }: { tick: string }) {
               <div className="text-[90%] leading-none text-[#fffc]">24h %</div>
             </div>
             <div className="mb-2 ml-12">
-              <div className="font-bold flex">
+              <div className="flex font-bold">
                 <Image
                   src="/assets/coin.svg"
                   alt="coin"
                   width={18}
                   height={18}
                   priority
-                  className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                  className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                 />
                 11,025
               </div>
@@ -107,14 +107,14 @@ export default function TickInfo({ tick }: { tick: string }) {
               </div>
             </div>
             <div className="mb-2 ml-12">
-              <div className="font-bold flex">
+              <div className="flex font-bold">
                 <Image
                   src="/assets/coin.svg"
                   alt="coin"
                   width={18}
                   height={18}
                   priority
-                  className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                  className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                 />
                 96,042,454
               </div>
@@ -129,7 +129,7 @@ export default function TickInfo({ tick }: { tick: string }) {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap -ml-12">
+          <div className="-ml-12 flex flex-wrap">
             <div className="mb-2 ml-12">
               <div className="font-bold">21,000,000</div>
               <div className="text-[90%] leading-none text-[#fffc]">
@@ -152,12 +152,12 @@ export default function TickInfo({ tick }: { tick: string }) {
           <FloorPriceChart />
         </div>
       </div>
-      <div className="w-105 mt-6">
+      <div className="mt-6 w-105">
         <div className="h-160 overflow-y-auto">
-          <div className="flex flex-col gap-4 text-white px-1">
+          <div className="flex flex-col gap-4 px-1 text-white">
             {[...Array(40)].map((_, i) => (
               <div key={i}>
-                <div className="flex justify-between my-1 px-1 text-[1.05rem] font-medium">
+                <div className="my-1 flex justify-between px-1 text-[1.05rem] font-medium">
                   <div className="flex">
                     <Image
                       src="/assets/coin.svg"
@@ -165,7 +165,7 @@ export default function TickInfo({ tick }: { tick: string }) {
                       width={18}
                       height={18}
                       priority
-                      className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                     />
                     0.52
                     <span className="text-[0.9rem] font-normal text-white/80">
@@ -175,16 +175,16 @@ export default function TickInfo({ tick }: { tick: string }) {
                   <div className="text-base text-white/80">$0.1</div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="p-2 bg-[#4c505c33] border border-white/10 rounded-xl flex justify-between items-center">
+                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#4c505c33] p-2">
                     <div className="ml-1">
-                      <div className="font-medium flex">
+                      <div className="flex font-medium">
                         <Image
                           src="/assets/coin.svg"
                           alt="coin"
                           width={18}
                           height={18}
                           priority
-                          className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                          className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                         />
                         519
                       </div>
@@ -201,29 +201,29 @@ export default function TickInfo({ tick }: { tick: string }) {
                           width={19}
                           height={19}
                           priority
-                          className="w-[1.2em] h-[1.2em] mr-1"
+                          className="mr-1 h-[1.2em] w-[1.2em]"
                           unoptimized
                         />
                         <div className="font-medium">155</div>
                       </div>
-                      <div className="text-[0.9rem] text-white/80 w-full text-right">
+                      <div className="w-full text-right text-[0.9rem] text-white/80">
                         {tick}
                       </div>
                     </div>
-                    <Button className="ml-4 text-md hover:bg-[#b8860b] bg-[#3d301b] hover:text-white text-[#feae32] hover:cursor-pointer">
+                    <Button className="text-md ml-4 bg-[#3d301b] text-[#feae32] hover:cursor-pointer hover:bg-[#b8860b] hover:text-white">
                       Buy
                     </Button>
                   </div>
-                  <div className="p-2 bg-[#4c505c33] border border-white/10 rounded-xl flex justify-between items-center">
+                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#4c505c33] p-2">
                     <div className="ml-1">
-                      <div className="font-medium flex">
+                      <div className="flex font-medium">
                         <Image
                           src="/assets/coin.svg"
                           alt="coin"
                           width={18}
                           height={18}
                           priority
-                          className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                          className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                         />
                         519
                       </div>
@@ -240,16 +240,16 @@ export default function TickInfo({ tick }: { tick: string }) {
                           width={19}
                           height={19}
                           priority
-                          className="w-[1.2em] h-[1.2em] mr-1"
+                          className="mr-1 h-[1.2em] w-[1.2em]"
                           unoptimized
                         />
                         <div className="font-medium">155</div>
                       </div>
-                      <div className="text-[0.9rem] text-white/80 w-full text-right">
+                      <div className="w-full text-right text-[0.9rem] text-white/80">
                         {tick}
                       </div>
                     </div>
-                    <Button className="ml-4 text-md hover:bg-[#b8860b] bg-[#3d301b] hover:text-white text-[#feae32] hover:cursor-pointer">
+                    <Button className="text-md ml-4 bg-[#3d301b] text-[#feae32] hover:cursor-pointer hover:bg-[#b8860b] hover:text-white">
                       Buy
                     </Button>
                   </div>

@@ -56,10 +56,12 @@ export function CopyButton({
       className={cn("h-4 w-4 scale-80", className)}
     >
       {children || (
-        <div className="flex text-[0.8rem] px-[0.6em] py-[0.4em] cursor-pointer rounded-xl border border-transparent font-medium font-inherit bg-[#1a1a1a] transition-all duration-200 ease-in-out">
+        <div className="font-inherit flex cursor-pointer rounded-xl border border-transparent bg-[#1a1a1a] px-[0.6em] py-[0.4em] text-[0.8rem] font-medium transition-all duration-200 ease-in-out">
           {copied ? <Check className="text-green-500" /> : <Copy />}
           {showText && (
-            <span className="ml-2 text-[16px] cursor-pointer">Copy to clipboard</span>
+            <span className="ml-2 cursor-pointer text-[16px]">
+              Copy to clipboard
+            </span>
           )}
         </div>
       )}

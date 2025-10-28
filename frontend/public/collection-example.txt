@@ -1,0 +1,22 @@
+Inscriptions definition format:
+[
+    {
+        "inscriptionId": "15f3b73df7e5c072becb1d84191843ba080734805addfccb650929719080f62ei0",
+        "name": "NFT #1"
+    },
+    ...
+]
+
+
+With traits:
+[
+    {
+        "inscriptionId": "15f3b73df7e5c072becb1d84191843ba080734805addfccb650929719080f62ei0",
+        "name": "NFT #1",
+        "attributes": {
+            "Attribute 1": "Blue",
+            "Attribute 2": "White"
+        }
+    },
+    ...
+]

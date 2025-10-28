@@ -23,10 +23,10 @@ export default function WalletAddress({
 
   return (
     <>
-      <h1 className="text-3xl leading-[1.1  ]">{address}</h1>
+      <h1 className="leading-[1.1 ] text-3xl">{address}</h1>
       <Tabs defaultValue="drc" className="relative">
-        <TabsList className="flex justify-between items-center flex-wrap shrink-0 my-4 bg-transparent">
-          <div className="flex my-2 overflow-x-auto select-none list-none p-0 gap-5">
+        <TabsList className="my-4 flex shrink-0 flex-wrap items-center justify-between bg-transparent">
+          <div className="my-2 flex list-none gap-5 overflow-x-auto p-0 select-none">
             <TabsTrigger value="drc" className="text-md">
               DRC-20
             </TabsTrigger>
@@ -41,28 +41,28 @@ export default function WalletAddress({
             </TabsTrigger>
             <TabsContent
               value="nfts"
-              className="absolute flex items-center right-0 text-white"
+              className="absolute right-0 flex items-center text-white"
             >
-              <button className="p-1.5 bg-none leading-0 rounded-xl">
+              <button className="rounded-xl bg-none p-1.5 leading-0">
                 <EllipsisVertical />
               </button>
             </TabsContent>
             <TabsContent
               value="dogemaps"
-              className="absolute flex items-center right-0 text-white"
+              className="absolute right-0 flex items-center text-white"
             >
-              <button className="p-1.5 bg-none leading-0 rounded-xl">
+              <button className="rounded-xl bg-none p-1.5 leading-0">
                 <Filter />
               </button>
-              <button className="p-1.5 bg-none leading-0 rounded-xl">
+              <button className="rounded-xl bg-none p-1.5 leading-0">
                 <EllipsisVertical />
               </button>
             </TabsContent>
             <TabsContent
               value="history"
-              className="absolute flex items-center right-0 text-white"
+              className="absolute right-0 flex items-center text-white"
             >
-              <button className="p-1.5 bg-none leading-0 rounded-xl">
+              <button className="rounded-xl bg-none p-1.5 leading-0">
                 <EllipsisVertical />
               </button>
             </TabsContent>
@@ -70,7 +70,7 @@ export default function WalletAddress({
         </TabsList>
         <TabsContent value="drc">
           <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-            <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+            <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
               <TableRow className="">
                 <TableHead></TableHead>
                 <TableHead>Tick</TableHead>
@@ -83,9 +83,9 @@ export default function WalletAddress({
             <TableBody className="text-[16px]">
               {[...Array(20)].map((_, i) => (
                 <TableRow key={i}>
-                  <TableCell className="text-center px-0 w-auto">
+                  <TableCell className="w-auto px-0 text-center">
                     <Link href="/dxcn">
-                      <div className="w-[42px] h-[42px] m-auto align-middle object-cover flex bg-[#212121] text-[0.7rem] justify-center items-center select-none rounded-full">
+                      <div className="m-auto flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#212121] object-cover align-middle text-[0.7rem] select-none">
                         dxcn
                       </div>
                     </Link>
@@ -104,11 +104,11 @@ export default function WalletAddress({
                         width={18}
                         height={18}
                         priority
-                        className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                        className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
                       />
                       587.77
                     </div>
-                    <div className="ml-5 font-medium text-[90%] leading-none text-[#fffc]">
+                    <div className="ml-5 text-[90%] leading-none font-medium text-[#fffc]">
                       $119.90
                     </div>
                   </TableCell>
@@ -116,9 +116,9 @@ export default function WalletAddress({
               ))}
             </TableBody>
           </Table>
-          <h2 className="mt-16 mb-5 leading-[1.1] text-2xl">Activity</h2>
+          <h2 className="mt-16 mb-5 text-2xl leading-[1.1]">Activity</h2>
           <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-            <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+            <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
               <TableRow className="">
                 <TableHead>Inscription</TableHead>
                 <TableHead>Action</TableHead>
@@ -135,7 +135,7 @@ export default function WalletAddress({
                   <TableCell>
                     <Link
                       href="/inscription/a93204a8caa7ba24ab3425974277fb39953773101ef0c22e47b8bb15081d777ei0"
-                      className="font-medium text-[#dfc0fd] decoration-inherit cursor-pointer"
+                      className="cursor-pointer font-medium text-[#dfc0fd] decoration-inherit"
                     >
                       a93...ei0
                     </Link>
@@ -146,7 +146,7 @@ export default function WalletAddress({
                   <TableCell>
                     <Link
                       href="wallet/DNKjZ3Tt3bwrVPFkvF43T8WcncXjDoXKVY"
-                      className="font-medium text-[#c891ff] decoration-inherit cursor-pointer"
+                      className="cursor-pointer font-medium text-[#c891ff] decoration-inherit"
                     >
                       DNKjZ...oXKVY
                     </Link>
@@ -154,7 +154,7 @@ export default function WalletAddress({
                   <TableCell>
                     <Link
                       href="wallet/DRjY9RJfhQGLxmwa4EVh66az2KuXyzh1tB"
-                      className="font-medium text-[#c891ff] decoration-inherit cursor-pointer"
+                      className="cursor-pointer font-medium text-[#c891ff] decoration-inherit"
                     >
                       DRjY9...zh1tB
                     </Link>
@@ -170,15 +170,15 @@ export default function WalletAddress({
           </Table>
         </TabsContent>
         <TabsContent value="nfts">
-          <div className="flex relative">
-            <div className="relative overflow-hidden grow">
-              <div className="grid gap-5 grid-cols-[repeat(auto-fill,minmax(12rem,1fr))]">
+          <div className="relative flex">
+            <div className="relative grow overflow-hidden">
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] gap-5">
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center relative overflow-hidden rounded-xl bg-[#4c505c33] p-4 text-center border-2 border-transparent transition-all duration-150 ease-in-out"
+                    className="relative flex flex-col items-center overflow-hidden rounded-xl border-2 border-transparent bg-[#4c505c33] p-4 text-center transition-all duration-150 ease-in-out"
                   >
-                    <div className="flex items-center justify-center w-32 h-32">
+                    <div className="flex h-32 w-32 items-center justify-center">
                       <Link
                         href="/inscription/de22f91ce12fba3f60c6f53c1fd676f4a4c67d60cbde39cb933fb37ca677b3bci0"
                         className="h-full w-full"
@@ -188,16 +188,16 @@ export default function WalletAddress({
                           alt="nft"
                           width={128}
                           height={128}
-                          className="object-contain rounded-xl w-auto h-full max-w-32 max-h-32 bg-[#444] text-[0.8rem] select-none pointer-events-none"
+                          className="pointer-events-none h-full max-h-32 w-auto max-w-32 rounded-xl bg-[#444] object-contain text-[0.8rem] select-none"
                           unoptimized
                         />
                       </Link>
                     </div>
-                    <div className="flex w-full justify-center text-[1.1rem] my-1.5 leading-[1.2]">
+                    <div className="my-1.5 flex w-full justify-center text-[1.1rem] leading-[1.2]">
                       <span>doginals</span>
                       <span className="ml-4">#277</span>
                     </div>
-                    <div className="w-full mt-auto border-t border-white/10 py-2">
+                    <div className="mt-auto w-full border-t border-white/10 py-2">
                       <div className="text-[0.9rem]">
                         <Link href="/inscription/de22f91ce12fba3f60c6f53c1fd676f4a4c67d60cbde39cb933fb37ca677b3bci0">
                           #35898655
@@ -206,8 +206,8 @@ export default function WalletAddress({
                     </div>
                   </div>
                 ))}
-                <div className="flex flex-col items-center relative overflow-hidden rounded-xl bg-[#4c505c33] p-4 text-center border-2 border-transparent transition-all duration-150 ease-in-out">
-                  <div className="flex items-center justify-center w-32 h-32">
+                <div className="relative flex flex-col items-center overflow-hidden rounded-xl border-2 border-transparent bg-[#4c505c33] p-4 text-center transition-all duration-150 ease-in-out">
+                  <div className="flex h-32 w-32 items-center justify-center">
                     <Link
                       href="/inscription/de22f91ce12fba3f60c6f53c1fd676f4a4c67d60cbde39cb933fb37ca677b3bci0"
                       className="h-full w-full"
@@ -217,16 +217,16 @@ export default function WalletAddress({
                         alt="nft"
                         width={128}
                         height={128}
-                        className="object-contain rounded-xl w-auto h-full max-w-32 max-h-32 bg-[#444] text-[0.8rem] select-none pointer-events-none"
+                        className="pointer-events-none h-full max-h-32 w-auto max-w-32 rounded-xl bg-[#444] object-contain text-[0.8rem] select-none"
                         unoptimized
                       />
                     </Link>
                   </div>
-                  <div className="flex w-full justify-center text-[1.1rem] my-1.5 leading-[1.2]">
+                  <div className="my-1.5 flex w-full justify-center text-[1.1rem] leading-[1.2]">
                     <span>Fronk Cartel</span>
                     <span className="ml-4">#277</span>
                   </div>
-                  <div className="w-full mt-auto border-t border-white/10 py-2">
+                  <div className="mt-auto w-full border-t border-white/10 py-2">
                     <div className="text-[0.9rem]">
                       <Link href="/inscription/de22f91ce12fba3f60c6f53c1fd676f4a4c67d60cbde39cb933fb37ca677b3bci0">
                         #35898655
@@ -243,7 +243,7 @@ export default function WalletAddress({
         </TabsContent>
         <TabsContent value="history">
           <Table className="w-full max-w-full border-separate border-spacing-0 leading-[1.2]">
-            <TableHeader className="text-[#8a939b] font-normal text-[0.95rem] text-left">
+            <TableHeader className="text-left text-[0.95rem] font-normal text-[#8a939b]">
               <TableRow className="">
                 <TableHead>Item</TableHead>
                 <TableHead>Action</TableHead>

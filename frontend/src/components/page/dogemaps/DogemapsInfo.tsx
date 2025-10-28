@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function DogemapsInfo() {
   return (
     <div className="mb-8">
-      <div className="flex flex-wrap -ml-12">
+      <div className="-ml-12 flex flex-wrap">
         <div className="mb-2 ml-12">
           <div className="flex font-bold">
             <Image
@@ -12,7 +12,7 @@ export default function DogemapsInfo() {
               width={18}
               height={18}
               priority
-              className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+              className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
             />
             <span className="text-white/95">1</span>
           </div>
@@ -28,7 +28,7 @@ export default function DogemapsInfo() {
               width={18}
               height={18}
               priority
-              className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+              className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
             />
             <span className="text-white/95">27</span>
           </div>
@@ -44,7 +44,7 @@ export default function DogemapsInfo() {
               width={18}
               height={18}
               priority
-              className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+              className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
             />
             <span className="text-white/95">14,347,324</span>
           </div>

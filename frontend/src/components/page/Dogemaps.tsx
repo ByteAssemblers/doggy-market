@@ -62,7 +62,7 @@ export default function Dogemaps() {
 
   return (
     <>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div>
           <h2 className="mt-0 mb-0 text-[1.6rem] leading-[1.1]">Dogemaps</h2>
           <div className="flex">
@@ -73,14 +73,14 @@ export default function Dogemaps() {
               width={18}
               height={18}
               priority
-              className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+              className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               unoptimized
             />
             <span className="text-white/95">1</span>
           </div>
         </div>
       </div>
-      <div className="mt-4 grid tiny:gap-5 gap-2 grid-cols-2 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2">
+      <div className="tiny:gap-5 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2 mt-4 grid grid-cols-2 gap-2">
         {visibleData.map((item) => (
           <DogemapCard
             key={item.id}
@@ -90,9 +90,9 @@ export default function Dogemaps() {
         ))}
         <Link
           href="/dogemaps"
-          className="flex items-center justify-center min-h-56 bg-[#4c505c33] border border-transparent rounded-[12px] font-bold text-[#fbb9fb] transition-all duration-250 ease-in-out hover:text-[violet] hover:border-[violet]"
+          className="flex min-h-56 items-center justify-center rounded-[12px] border border-transparent bg-[#4c505c33] font-bold text-[#fbb9fb] transition-all duration-250 ease-in-out hover:border-[violet] hover:text-[violet]"
         >
-          <div className="text-center p-3">Show all listed dogemaps</div>
+          <div className="p-3 text-center">Show all listed dogemaps</div>
         </Link>
       </div>
     </>

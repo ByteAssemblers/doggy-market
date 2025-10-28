@@ -6,7 +6,7 @@ import InscribeTabs from "@/components/page/inscribe/InscribeTabs";
 export default function Inscribe() {
   return (
     <>
-      <h2 className="block text-[1.5em] my-[0.83em] mx-0 font-bold leading-[1.1]">
+      <h2 className="mx-0 my-[0.83em] block text-[1.5em] leading-[1.1] font-bold">
         Inscribe on doginals
       </h2>
       <InscribeTabs />

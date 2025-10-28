@@ -6,19 +6,19 @@ import Link from "next/link";
 export function NftInfo({ nft }: { nft: string }) {
   return (
     <>
-      <div className="flex items-center mt-4 mb-8">
+      <div className="mt-4 mb-8 flex items-center">
         <Image
           src="https://api.doggy.market/inscriptions/4f7b03a66f49a21ec4391eaad0073c41799b461ab28cde0ccf809c0a8b5c997ci0/content"
           alt="NFT"
           width={112}
           height={112}
-          className="shrink-0 mr-6 w-28 h-28 rounded-full object-cover [image-rendering:pixelated]"
+          className="mr-6 h-28 w-28 shrink-0 rounded-full object-cover [image-rendering:pixelated]"
           unoptimized
         />
         <div>
-          <div className="flex items-center flex-wrap gap-y-2 gap-x-12">
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-2">
             <div className="flex items-center gap-x-4">
-              <h1 className="text-[2.3rem] m-0 leading-[1.1]">
+              <h1 className="m-0 text-[2.3rem] leading-[1.1]">
                 Doginal Mini Doges {nft}
               </h1>
               <svg
@@ -39,7 +39,7 @@ export function NftInfo({ nft }: { nft: string }) {
             <div className="flex">
               <Link
                 href="https://www.minidogeart.com/"
-                className="text-[#fffc] leading-none mr-4"
+                className="mr-4 leading-none text-[#fffc]"
               >
                 <svg
                   data-v-1f7beb45=""
@@ -53,7 +53,7 @@ export function NftInfo({ nft }: { nft: string }) {
               </Link>
               <Link
                 href="https://x.com/minidogeart"
-                className="text-[#fffc] leading-none"
+                className="leading-none text-[#fffc]"
               >
                 <svg
                   data-v-1f7beb45=""
@@ -72,13 +72,13 @@ export function NftInfo({ nft }: { nft: string }) {
               </Link>
             </div>
           </div>
-          <div className="mt-2 text-white/95 leading-tight">
+          <div className="mt-2 leading-tight text-white/95">
             Much Wow! Very early! Starting shibescription 14578! Woof!
           </div>
         </div>
       </div>
       <div className="mb-8">
-        <div className="flex flex-wrap -ml-12">
+        <div className="-ml-12 flex flex-wrap">
           <div className="mb-2 ml-12">
             <div className="flex font-bold">
               <Image
@@ -87,7 +87,7 @@ export function NftInfo({ nft }: { nft: string }) {
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               <span className="text-white/95">350</span>
             </div>
@@ -103,7 +103,7 @@ export function NftInfo({ nft }: { nft: string }) {
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               <span className="text-white/95">1,038</span>
             </div>
@@ -119,7 +119,7 @@ export function NftInfo({ nft }: { nft: string }) {
                 width={18}
                 height={18}
                 priority
-                className="w-[1.1em] h-[1.1em] mr-[0.4em] mb-[-0.2em]"
+                className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
               />
               <span className="text-white/95">27,059,680</span>
             </div>
