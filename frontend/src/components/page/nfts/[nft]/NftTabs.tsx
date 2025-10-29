@@ -14,7 +14,13 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Card } from "@/components/ui/card";
-import { Filter } from "lucide-react";
+import {
+  BrushCleaning,
+  Check,
+  EllipsisVertical,
+  Filter,
+  ShoppingCart,
+} from "lucide-react";
 import { FloorPriceChart } from "@/components/FloorPriceChart";
 import {
   Dialog,
@@ -24,6 +30,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type Item = {
   id: number;
@@ -59,6 +76,16 @@ export default function NftTabs() {
       collectionid: 7672,
       price: 1114,
     },
+  ];
+
+  const [selectedSort, setSelectedSort] = useState("Price: lowest first");
+  const [selectedFilter, setSelectedFilter] = useState(false);
+
+  const sortOptions = [
+    "Price: lowest first",
+    "Price: highest first",
+    "Recently listed",
+    "Inscription number: lowest first",
   ];
 
   function generateLargeDatabase(
@@ -114,170 +141,238 @@ export default function NftTabs() {
           </TabsTrigger>
         </div>
         <TabsContent value="listings">
-          <div className="absolute right-0 flex gap-2 text-center text-white">
-            <Filter />
-            <Filter />
-            <Filter />
-            <Filter />
+          <div className="absolute top-6 right-0 flex text-center text-white">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-pointer rounded-md p-[0.3rem] hover:bg-[#222]">
+                  <BrushCleaning />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="text-white">Sweep</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="mx-2 cursor-pointer rounded-md p-[0.3rem] hover:bg-[#222]">
+                  <ShoppingCart />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="text-white">Bulk buy</TooltipContent>
+            </Tooltip>
+            <div
+              className={`mr-2 cursor-pointer rounded-md p-[0.3rem] hover:bg-[#222] ${selectedFilter ? "bg-[#431e80] text-[#a974ff]" : "bg-transparent text-white"}`}
+              onClick={() => setSelectedFilter(!selectedFilter)}
+            >
+              <Filter />
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="cursor-pointer rounded-md p-[0.3rem] hover:bg-[#222]">
+                <EllipsisVertical />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="text-lg">
+                {sortOptions.map((option) => (
+                  <DropdownMenuItem
+                    key={option}
+                    onClick={() => setSelectedSort(option)}
+                    className="flex items-center"
+                  >
+                    <span>{option}</span>
+                    {selectedSort === option && (
+                      <Check className="ml-4 text-[#b064fd]" />
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </TabsContent>
       </TabsList>
       <TabsContent value="listings">
-        <div className="tiny:gap-5 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2 mt-4 grid grid-cols-2 gap-2">
-          {currentItems.map((item) => (
-            <Card
-              key={item.id}
-              className="relative w-56 gap-0! pt-0 pb-0 hover:border-[#8c45ff] hover:[&_div]:[&_button]:bg-[#8c45ff] hover:[&_div]:[&_button]:text-white"
-            >
-              <div className="pointer-events-none absolute top-0 right-0 rounded-bl-[12px] bg-[#0000006b] px-2 py-0 text-[0.9rem] font-semibold text-white">
-                #{item.id}
-              </div>
-              <Link href={`/inscription/${item.id}`}>
-                <Image
-                  src={item.imageurl}
-                  alt={`BSOD #${item.id}`}
-                  width={224}
-                  height={224}
-                  className="block aspect-square w-full rounded-[12px] bg-[#00000080] object-contain [image-rendering:pixelated]"
-                  unoptimized
-                />
-              </Link>
-              <div className="flex h-full flex-col px-3 pt-1 pb-3">
-                <div className="my-1 flex justify-center gap-4 text-[1.1rem] leading-[1.2] font-semibold text-white">
-                  <span>{item.collectionname}</span>
-                  <span>#{item.collectionid}</span>
-                </div>
-                <div className="mt-auto border-t border-white/10 py-1">
-                  <div className="flex justify-center text-center">
-                    <Image
-                      src="/assets/coin.svg"
-                      alt="coin"
-                      width={18}
-                      height={18}
-                      priority
-                      className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
-                    />
-                    {item.price}&#xA0;
-                    <span className="text-[0.9rem] text-[#fffc]">
-                      (${(item.price * dogecoinPrice).toFixed(2)})
-                    </span>
+        <div className="relative flex">
+          <div className="relative grow">
+            <div className="tiny:gap-5 four:grid-cols-5 three:grid-cols-4 two:grid-cols-3 tiny:grid-cols-2 mt-4 grid grid-cols-2 gap-2">
+              {currentItems.map((item) => (
+                <Card
+                  key={item.id}
+                  className="relative w-56 gap-0! pt-0 pb-0 hover:border-[#8c45ff] hover:[&_div]:[&_button]:bg-[#8c45ff] hover:[&_div]:[&_button]:text-white"
+                >
+                  <div className="pointer-events-none absolute top-0 right-0 rounded-bl-[12px] bg-[#0000006b] px-2 py-0 text-[0.9rem] font-semibold text-white">
+                    #{item.id}
                   </div>
-                </div>
-                <Dialog>
-                  <DialogTrigger className="font-inherit w-full cursor-pointer rounded-[12px] border-0 bg-[#e6d8fe] px-4 py-2 text-[1em] font-extrabold text-[#9c63fa] transition-all duration-250 ease-in-out">
-                    Buy
-                  </DialogTrigger>
-                  <DialogContent className="my-[50px] box-border flex min-h-[500px] w-xl max-w-[calc(100%-1rem)] shrink-0 grow-0 scale-100 flex-col overflow-visible rounded-[12px] bg-[#ffffff1f] p-6 opacity-100 backdrop-blur-xl transition-opacity duration-200 ease-linear">
-                    <DialogHeader>
-                      <DialogTitle className="mt-0 mb-2 text-center text-3xl leading-[1.1] font-semibold text-[#e6d8fe]">
-                        Buy {item.collectionname}
-                      </DialogTitle>
-                      <DialogDescription></DialogDescription>
-                      <div className="mb-2 flex max-h-104 flex-wrap justify-center gap-2.5 overflow-y-auto">
-                        <div className="rounded-[12px] bg-[#00000080] p-2">
-                          <div className="flex">
-                            <Image
-                              src={item.imageurl}
-                              alt={`Dogemaps #${item.id}`}
-                              width={144}
-                              height={144}
-                              className="mx-auto h-36 w-36 rounded-md text-[0.8rem]"
-                              unoptimized
-                            />
-                          </div>
-                          <div className="mt-2 text-center text-[1rem] text-white">
-                            {item.collectionname} #{item.collectionid}
-                            <div className="text-center text-[0.8rem] text-[#dfc0fd]">
-                              #{item.id}
+                  <Link href={`/inscription/${item.id}`}>
+                    <Image
+                      src={item.imageurl}
+                      alt={`BSOD #${item.id}`}
+                      width={224}
+                      height={224}
+                      className="block aspect-square w-full rounded-[12px] bg-[#00000080] object-contain [image-rendering:pixelated]"
+                      unoptimized
+                    />
+                  </Link>
+                  <div className="flex h-full flex-col px-3 pt-1 pb-3">
+                    <div className="my-1 flex justify-center gap-4 text-[1.1rem] leading-[1.2] font-semibold text-white">
+                      <span>{item.collectionname}</span>
+                      <span>#{item.collectionid}</span>
+                    </div>
+                    <div className="mt-auto border-t border-white/10 py-1">
+                      <div className="flex justify-center text-center">
+                        <Image
+                          src="/assets/coin.svg"
+                          alt="coin"
+                          width={18}
+                          height={18}
+                          priority
+                          className="mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
+                        />
+                        {item.price}&#xA0;
+                        <span className="text-[0.9rem] text-[#fffc]">
+                          (${(item.price * dogecoinPrice).toFixed(2)})
+                        </span>
+                      </div>
+                    </div>
+                    <Dialog>
+                      <DialogTrigger className="font-inherit w-full cursor-pointer rounded-[12px] border-0 bg-[#e6d8fe] px-4 py-2 text-[1em] font-extrabold text-[#9c63fa] transition-all duration-250 ease-in-out">
+                        Buy
+                      </DialogTrigger>
+                      <DialogContent className="my-[50px] box-border flex min-h-[500px] w-xl max-w-[calc(100%-1rem)] shrink-0 grow-0 scale-100 flex-col overflow-visible rounded-[12px] bg-[#ffffff1f] p-6 opacity-100 backdrop-blur-xl transition-opacity duration-200 ease-linear">
+                        <DialogHeader>
+                          <DialogTitle className="mt-0 mb-2 text-center text-3xl leading-[1.1] font-semibold text-[#e6d8fe]">
+                            Buy {item.collectionname}
+                          </DialogTitle>
+                          <DialogDescription></DialogDescription>
+                          <div className="mb-2 flex max-h-104 flex-wrap justify-center gap-2.5 overflow-y-auto">
+                            <div className="rounded-[12px] bg-[#00000080] p-2">
+                              <div className="flex">
+                                <Image
+                                  src={item.imageurl}
+                                  alt={`Dogemaps #${item.id}`}
+                                  width={144}
+                                  height={144}
+                                  className="mx-auto h-36 w-36 rounded-md text-[0.8rem]"
+                                  unoptimized
+                                />
+                              </div>
+                              <div className="mt-2 text-center text-[1rem] text-white">
+                                {item.collectionname} #{item.collectionid}
+                                <div className="text-center text-[0.8rem] text-[#dfc0fd]">
+                                  #{item.id}
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="mt-auto grid grid-cols-[1fr_auto_auto] leading-[1.6]">
-                        <div className="text-[0.95rem] text-white">
-                          Taker fee (2.8%)
-                        </div>
-                        <div className="flex text-[1rem] text-white">
-                          <Image
-                            src="/assets/coin.svg"
-                            alt="coin"
-                            width={18}
-                            height={18}
-                            priority
-                            className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
-                          />
-                          {((item.price * 2.8) / 100).toFixed(2)}
-                        </div>
-                        <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
-                          $ {(item.price * 0.028 * dogecoinPrice).toFixed(2)}
-                        </span>
-                        <div className="text-[0.95rem] text-white">
-                          Network fee
-                        </div>
-                        <div className="flex text-[1rem] text-white">
-                          <Image
-                            src="/assets/coin.svg"
-                            alt="coin"
-                            width={18}
-                            height={18}
-                            priority
-                            className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
-                          />
-                          ≈0.5
-                        </div>
-                        <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
-                          $0.099
-                        </span>
-                        <div className="mt-5 text-[1rem] font-bold text-white">
-                          Total
-                        </div>
-                        <div className="mt-5 flex text-[1rem] font-bold text-white">
-                          <Image
-                            src="/assets/coin.svg"
-                            alt="coin"
-                            width={18}
-                            height={18}
-                            priority
-                            className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
-                          />
-                          {(item.price * 1.028 + 0.5).toFixed(2)}
-                        </div>
-                        <span className="mt-5 ml-4 text-right text-[0.9rem] font-bold text-[#fffc]">
-                          $
-                          {((item.price * 1.028 + 0.5) * dogecoinPrice).toFixed(
-                            2,
-                          )}
-                        </span>
-                        <div className="mt-2 text-[0.95rem] text-white">
-                          Available balance
-                        </div>
-                        <div className="mt-2 flex text-[1rem] text-white">
-                          <Image
-                            src="/assets/coin.svg"
-                            alt="coin"
-                            width={18}
-                            height={18}
-                            priority
-                            className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
-                          />
-                          0
-                        </div>
-                        <span className="mt-2 ml-4 text-right text-[0.9rem] text-[#fffc]">
-                          $0
-                        </span>
-                      </div>
-                      <button
-                        disabled
-                        className="font-inherit mt-4 flex w-full justify-center rounded-[12px] border border-transparent px-4 py-2 text-[1em] font-bold text-white transition-all duration-200 ease-in-out disabled:bg-[#1a1a1a]"
-                      >
-                        Insufficient balance
-                      </button>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </Card>
-          ))}
+                          <div className="mt-auto grid grid-cols-[1fr_auto_auto] leading-[1.6]">
+                            <div className="text-[0.95rem] text-white">
+                              Taker fee (2.8%)
+                            </div>
+                            <div className="flex text-[1rem] text-white">
+                              <Image
+                                src="/assets/coin.svg"
+                                alt="coin"
+                                width={18}
+                                height={18}
+                                priority
+                                className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
+                              />
+                              {((item.price * 2.8) / 100).toFixed(2)}
+                            </div>
+                            <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
+                              ${" "}
+                              {(item.price * 0.028 * dogecoinPrice).toFixed(2)}
+                            </span>
+                            <div className="text-[0.95rem] text-white">
+                              Network fee
+                            </div>
+                            <div className="flex text-[1rem] text-white">
+                              <Image
+                                src="/assets/coin.svg"
+                                alt="coin"
+                                width={18}
+                                height={18}
+                                priority
+                                className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
+                              />
+                              ≈0.5
+                            </div>
+                            <span className="ml-4 text-right text-[0.9rem] text-[#fffc]">
+                              $0.099
+                            </span>
+                            <div className="mt-5 text-[1rem] font-bold text-white">
+                              Total
+                            </div>
+                            <div className="mt-5 flex text-[1rem] font-bold text-white">
+                              <Image
+                                src="/assets/coin.svg"
+                                alt="coin"
+                                width={18}
+                                height={18}
+                                priority
+                                className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
+                              />
+                              {(item.price * 1.028 + 0.5).toFixed(2)}
+                            </div>
+                            <span className="mt-5 ml-4 text-right text-[0.9rem] font-bold text-[#fffc]">
+                              $
+                              {(
+                                (item.price * 1.028 + 0.5) *
+                                dogecoinPrice
+                              ).toFixed(2)}
+                            </span>
+                            <div className="mt-2 text-[0.95rem] text-white">
+                              Available balance
+                            </div>
+                            <div className="mt-2 flex text-[1rem] text-white">
+                              <Image
+                                src="/assets/coin.svg"
+                                alt="coin"
+                                width={18}
+                                height={18}
+                                priority
+                                className="mt-[0.1rem] mr-[0.4em] mb-[-0.2em] h-[1.1em] w-[1.1em]"
+                              />
+                              0
+                            </div>
+                            <span className="mt-2 ml-4 text-right text-[0.9rem] text-[#fffc]">
+                              $0
+                            </span>
+                          </div>
+                          <button
+                            disabled
+                            className="font-inherit mt-4 flex w-full justify-center rounded-[12px] border border-transparent px-4 py-2 text-[1em] font-bold text-white transition-all duration-200 ease-in-out disabled:bg-[#1a1a1a]"
+                          >
+                            Insufficient balance
+                          </button>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+          {selectedFilter && (
+            <div className="sticky top-[100px] block h-[calc(100vh-200px)] w-[300px] min-w-[300px] overflow-y-auto px-8">
+              {[...Array(9)].map((_, i) => (
+                <div key={i} className="mb-4">
+                  <div className="text-[1.1rem] font-semibold">Background:</div>
+                  {[...Array(9)].map((_, i) => (
+                    <label
+                      key={i}
+                      className="relative flex cursor-pointer items-center rounded-[12px] p-3 leading-[1.2] hover:bg-[#222]"
+                    >
+                      <input
+                        type="checkbox"
+                        className="m-0 mr-3 h-[18px] w-[18px]"
+                      />
+                      <span className="font-semibold">Black n tan</span>
+                      <span className="ml-auto pl-2 text-[0.9rem] text-[#fffc]">
+                        2867
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <Pagination className="mt-5">
           <PaginationContent className="flex items-center space-x-2">
